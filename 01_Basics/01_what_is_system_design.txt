@@ -1,0 +1,72 @@
+Pizza Shop Example
+------------------
+
+One chef is working in your pizza shop.
+How can you scale?
+
+1.Pay the chef more to get more output. More resources
+	for existing hardware needed. VERTICAL SCALING.
+
+2. Preparing pizza base and indgredients beforehand,
+	in non peak hours. PREPROCESSING AND CRON JOBS.
+
+3. Hire a backup chef, if the only chef is out sick. The
+	only chef is a single point of failure. So keep a
+	backup chef who will work and get paid only when the
+	main chef is absent. KEEP BACKUPS AND AVOID SINGLE
+	POINT OF FAILURES. MASTER(main)-SLAVE(backup)
+	ARCHITECTURE.
+
+4. Hire more chefs. In total - 10 main chefs and 3 backup
+	chefs. So buy more hardware of similar type and get
+	more work done. HORIZONTAL SCALING.
+
+5. Separate the services offered by chefs. If some chefs
+	are good in making pizza, they will receive pizza
+	orders only. If some other chefs are good in making
+	garlic bread, they will receive those orders only.
+	Services will receive work that they specialize in
+	doing. Separate services of chefs within the pizza shop.
+	MICROSERVICES ARCHITECTURE.
+
+6. If there is a power outage in shop, business fails. So,
+	have a similar shop in some other place. If shop 1 is
+	suffering with power outage, shop 2 and 3 can handle
+	the oncoming business. Also, closer the request, the
+	closer shop is chosen to serve. This is the biggest and
+	most complex step in scaling. Communication between
+	shops, routing an order to a particular shop, etc, etc.
+	DISTRIBUTED SYSTEMS.
+
+7. Customer orders a pizza on swiggy. Shop 1,2,3 can make
+	and deliver the pizza. How is this decided? The order
+	goes to a central authority, that, based on the existing
+	workloads of shop 1,2,3 routes the order to the shop
+	with the least wait time. This decision making can be
+	intelligently done, based on a number of parameters
+	such as wait time, cook time, distance, reheat time,
+	etc. This central authority is the LOAD BALANCER.
+
+8. Within the pizza shop, chefs are managing everything.
+	Introduce new roles, such as delivery agents etc.This
+	process of segregating concerns is known as DECOUPLING.
+
+9. In the whole process, log everying, create receipts, if
+	anything fails, write everything to a notice board, so
+	that it can be fixed. Suppose an oven fails. If no one
+	is told about this, it will create issues, so put it
+	on the notice board. This step is LOGGING AND METRICS.
+
+10. System should be EXTENSIBLE. Delivery agents should
+	not only deliver pizzas. If a new change is introduced
+	and now, burgers are also made, the delivery agents
+	should be able to handle burgers also. They should be
+	abstract.
+
+
+The above discussed design is the HIGH LEVEL DESIGN.
+
+HLD vs LLD - 
+HLD is the overview that what needs to be implemented.
+LLD is the actual code implementation of how the component
+	should be implemented. How the classes look etc.
