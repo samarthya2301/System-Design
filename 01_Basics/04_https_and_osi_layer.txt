@@ -1,0 +1,73 @@
+OSI Layer
+---------
+
+1. Application Layer
+- Closest to user
+- Provides application services
+- Request and receive content
+- Produce the data to be transmitted
+- HTTP/HTTPS, SMTP, FTP, DNS etc
+
+2. Presentation/Translation Layer
+- Encrypts, encodes and compresses usable data
+- Data from transport is extracted & manipulated here
+- Protocols: TLS/SSL
+- Encoding types: JPEG, MPEG, GIF etc
+
+3. Session Layer
+- Establishes, manages and terminates sessions between
+	end nodes
+
+4. Transport Layer
+- Transmits data using protocols such as TCP and UDP
+- Segmentation -> Transport -> Reassembly
+- Provides services to Application Layer
+- Source and destination port numbers are added
+- Packet sent to network layer
+
+5. Network Layer
+- Assign global addresses to interfaces
+- Transmission of data between ip addresses
+- Sender & Receiver IPs are put in header by this layer
+- Determines the best route through different networks
+- Packet creation -> Routing -> Packet assembly
+
+6. Data Link Layer
+- Assigns local addresses to interfaces
+- Delivers information locally, MAC layer
+- Sublayers: Logical Link Control, Data Access Control
+- Communication using MAC addresses
+
+7. Physical Layer
+- Encodes signals
+- Cabling and connectors. Physical specification
+- Sending cable -> Bitstream -> Receiving cable
+- HUB, Modem, Cables
+
+--------------------
+
+Real-Time Process -
+Application: Applications create the data.
+Presentation: Data is formatted and encrypted.
+Session: Connections are established and managed.
+Transport: Data is broken into segments for reliable delivery.
+Network: Segments are packaged into packets and routed.
+Data Link: Packets are framed and sent to the next device.
+Physical: Frames are converted into bits and transmitted physically
+
+-------------------
+
+HTTP in Detail -
+* Application layer protocol
+* Used to access & transfer data (multimedia also)
+* Client-server protocol
+* Runs on top of TCP/IP & uses request/response protocol
+* Port 80
+* Client sends request and waits for response & then the connection is closed
+* New request needs a new connection b/w client and server
+* Connectionless - Terminated after process complete. New work = new connection
+* Independent - Can send any type of data, client and server should know
+* Stateless - Client and server know each other only during the request
+* HTTPS is a secured version of HTTP
+* HTTPS allows data to be sent in encrypted form
+* HTTPS uses TLS/SSL to encrypt communication 
