@@ -1,0 +1,31 @@
+You have a computer that is running an algorithm.
+This is exposed through an API, that users can
+request and get the responses. The traffic increases
+and more people start using thsi algorithm. More
+requests start coming and your M1 is unable to
+handle all the requests. This is where scalability
+comes in. You can do these to scale your system -
+
+1. Vertical Scaling (VS)
+	Buy an M4 (bigger and better computer than existing)
+
+2. Horizontal Scaling (HS)
+	Buy 4 M1s (more computers, but similar to existing)
+
+Differences in HS and VS
+1. HS needs load balancing, since multiple servers are
+	there. VS needs no load balancing.
+2. In HS, if one machine fails, traffic can be routed
+	to other machines. HS systems are resilient. In
+	VS, if the machine fails, everything goes down.
+	It is a single point of failure.
+3. In HS, communication between servers is over network.
+	So it is slow. In VS, it would be inter process
+	communication. So it is fast.
+4. In HS, data consistency is hard to maintain because
+	of all the different servers. In VS, it is easy
+	because everything is in a single system.
+5. In VS, hardware limits may exist. You may not get a
+	system that has very high RAM or CPU and so on.
+	In HS, this limit does not apply because we always
+	can introduce new systems to be HS.
