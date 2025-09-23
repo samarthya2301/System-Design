@@ -1,0 +1,12 @@
+TCP/IP Stack
+------------
+
+Same as OSI Layer stack.
+Some layers are more in osi. Not a part of TCP/IP.
+
+Layers of TCP/IP Stack
+* Application - http/s, dns, smtp, ftp, telnet
+* Transport - tcp, udp
+* Network - ip, arp, icmp
+* Data Link - mac, llc
+* Physical - copper cables, optic fibers, radio waves

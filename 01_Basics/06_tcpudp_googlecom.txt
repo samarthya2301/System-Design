@@ -1,0 +1,45 @@
+TCP & UDP
+---------
+
+TCP -
+* Transmission Control Protocol
+* Used to deliver static websited
+* Wikipedia, google, email services, file download
+* Large data converted into small packets
+* Small packets sent over network
+* With each packet a confirmation
+* Eg: File download, if stops, resumes from where it
+	stopped if on same network. If network switched,
+	only then the connection breaks.
+* Slow because it confirms if next packet to be sent or not
+
+UDP -
+* User Datagram Protocol
+* Live videos and online games
+* No confirmation if data received successfully or not
+* Main motive is to send information
+* Eg: When network goes away in live video on youtube,
+	the video just stops. When reconnected, only then
+	it resumes. The lost data is forever lost.
+
+
+What happens when you type google.com?
+--------------------------------------
+1. Browser fetches url
+2. Browser checks cache for the domain, if present returns IP.
+3. Browser asks OS to locate the domain.
+4. OS checks the host file for the domain, if present returns IP.
+5. OS makes a DNS request to get IP of the domain.
+6. Resolver/Internet Service Provider is queried, if present returns IP.
+7. Root server is queried.
+8. Root server asks the Top Level Domain Server (.COM TLD, .NET TLD, etc).
+9. If TLD has it, IP is returned.
+10. Authoritative Name Server is queried, which returns the IP.
+11. OS now has IP. So it gives to browser. Browser makes a GET call.
+12. OS sends the call that the browser gave to it, to the requested IP.
+13. OS packs the request in TCP and sends to the IP.
+14. Packet is sent through firewalls of both OS and Server.
+15. Load balancer receives the request and sends to a server.
+16. Response with IP and SSL certificate initiates HTTPS
+17. HTML, CSS, JS files are returned to OS and then to browser.
+18. Browser interprets these and displays.
