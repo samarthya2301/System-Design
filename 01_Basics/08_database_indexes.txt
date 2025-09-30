@@ -1,0 +1,81 @@
+Database Indexes
+---------------
+
+Index in General?
+- Index on the back of a book.
+- States every important thing by word.
+- Denotes where is it present.
+- If you wanted to find something in a book, you would have to
+	go through every page (very slow) to find that particular
+	word. But when indexes are there, the index will tell you
+	directly where the requried word is present.
+- Similarly, in a database, there are a lot of records. If you
+	have a query that needs to search on a particular parameter,
+	it will scan all the database records, which is very slow.
+	So based on requirements, an index is created beforehand,
+	which is invoked when the query contains a particular search
+	clause.
+- Indexing in databases helps us find data faster without
+	scanning the entire table/collection.
+
+
+Indexing in Relational Database?
+- As we know, data is stored in tables (rows & columns). An
+	index is built on one or more COLUMN.
+- Suppose there are millions of records for people. There is a
+	column city, which is invoked frequently because of the
+	requirement. So if a query is invoked that contains where
+	city = 'Dehradun', the query will scan the entire table if
+	the index is not present. But if there is an index set on
+	the 'city' column, it will be known where all the records
+	with city = 'Dehradun' are present. Like a phonebook of
+	records with city in sorted order. So the entire table is
+	not checked and the query is executed much faster. Indexes
+	can access the required data based on a hash function. It
+	is not necessarily sorted.
+
+Indexing in NoSQL Databases?
+- NoSQL databases are not as rigit as relational databases.
+- Indexes work similarly, but are flexible than RDs.
+- Same working as RDs.
+- In NoSQL DBs, indexes can support things like nested fields
+	or text search.
+
+Indexing techniques -
+- A sort key is defined.
+- A sort key defines the order in which the data is to be
+	stored in the cluster nodes.
+- This is how the database knows where all the records with
+	city = 'Dehradun' know where they are present.
+- So when the insertion comes, the record is hashed and based
+	on the sort key, it is inserted into the appropriate
+	position in the table.
+- When records are fetched, the database know exactly where it
+	stored the records with city = 'Dehradun'.
+- Partition key is to be decided carefully. Suppose query -
+	SELECT * FROM PEOPLE
+	WHERE country = 'India'
+	AND gender = 'F'
+	ORDER by city;
+	- If you keep an index only on country, or gender, it will
+	be expensive.
+	- If sortkey is only on 'country', then first all the
+	people from 'India' are fetched and then the people with
+	gender 'F' are fetched. Then the result is sorted. This
+	fetching of all people from 'India' is redundant and
+	expensive.
+	- So to avoid these overheads, we will define the sort key
+	like: country + gender + city. This combination will generate
+	a special sort id.
+	- So, for the above query, an optimized query can look like -
+	SELECT * FROM PEOPLE
+	WHERE sort_id LIKE 'INDIA+F%';
+	- This example was for NoSQL databases. In RDs, we already
+	have normalized tables, meaning the tables can be easily
+	joined and result fetched.
+
+
+Effects of Indexes:
+- Much faster queries in both Relational and NoSQL DBs.
+- Extra storage space.
+- Write queries slow down because indexes are also updated.
